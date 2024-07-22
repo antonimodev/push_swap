@@ -6,7 +6,12 @@
 /*   By: antonimo <antonimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 13:41:22 by antonimo          #+#    #+#             */
-/*   Updated: 2024/07/22 16:41:16 by antonimo         ###   ########.fr       */
+/*   Updated: 2024/07/22 17:16:34 by antonimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "stack.h"
+
+void	sort(t_stack stacks)
+{
+}
