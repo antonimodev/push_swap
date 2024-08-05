@@ -6,7 +6,7 @@
 /*   By: antonimo <antonimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 16:28:35 by antonimo          #+#    #+#             */
-/*   Updated: 2024/07/25 12:35:21 by antonimo         ###   ########.fr       */
+/*   Updated: 2024/08/05 13:15:16 by antonimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,47 @@ void	fill_pile(t_stack *stacks, t_pile *piles, int ac, char **av)
 	int	i;
 
 	nums = malloc(ac * sizeof(int));
-	i = 0;
 	if (!nums)
 		error(stacks);
+	i = 0;
 	while (av[i])
 	{
-		/*if (!valid_av(av[i])) Comprobacion si es válido;
-		error(stacks); libera*/
+		if (!valid_av(av[i])) /*Lo hace así porque cuando ATOI da mal, te devuelve 0, y 0 es un argumento válido*/
+			error(stacks);
 		nums[i] = ft_atoi(av[i]);
 		i++;
 	}
-	check_doubles(&stacks, nums, ac); // Dentro de check existe error>exit que rompe la funcion, por eso no hace falta bool, con void funciona
-	nums_ranked(&stacks, nums, ac);
+	check_doubles(stacks, nums, ac);
+	nums_ranked(nums, piles->array, ac);
+}
+bool	valid_av(char av[])
+{
+	int			sign;
+	long long	num;
+
+	sign = 1; /*Cambiar signo en caso de -*/
+	if (*av == '\0') /*Ponemos '\0' porque av son strings*/
+		return (false);
+	if (*av == '-' || av == '+')
+	{
+		if (*av == '-')
+			sign = -1;
+		av++;
+		if (*av == '\0')
+			return (false);
+	}
+	num = 0;
+	/*comprobado que los av son '-NUMEROS' o '+NUMEROS' y no son '-' o '+'*/
+	while (*av)
+	{
+		if (!ft_isdigit) /*cubrimos por si fuese '--' / '++' o '-LETRAS' / '+LETRAS'*/
+			return (false);
+		num = num * 10 + (*av - '0');
+		if ((sign == 1 && num > INT_MAX) || (sign == -1 && num < INT_MIN))
+			return (false);
+		*av++;
+	}
+	return (true);
 }
 
 void	check_doubles(t_stack *stacks, int *nums, int ac)
@@ -54,7 +83,7 @@ void	check_doubles(t_stack *stacks, int *nums, int ac)
 	}
 }
 
-void	nums_ranked(t_stack *stacks, int *nums, int ac)
+void	nums_ranked(int *nums, int pile[], int ac)
 {
 	int	i;
 	int	j;
@@ -71,7 +100,7 @@ void	nums_ranked(t_stack *stacks, int *nums, int ac)
 				count_bigger++;
 			j++;
 		}
-		stacks->a.array[i] = count_bigger;
+		pile[i] = count_bigger;
 		i++;
 	}
 }
