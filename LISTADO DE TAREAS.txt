@@ -1,0 +1,4 @@
+Aug 5 -> Completada la inicialización de los stacks junto con la comprobación de argumentos válidos.
+Pila ordenada con el número ORDINAL de cada valor.
+
+Próximo día -> Completar la función sort, entendiendo qué hace "is sorted" primero.

@@ -6,7 +6,7 @@
 /*   By: antonimo <antonimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 12:24:41 by antonimo          #+#    #+#             */
-/*   Updated: 2024/08/05 13:11:19 by antonimo         ###   ########.fr       */
+/*   Updated: 2024/08/05 13:40:52 by antonimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,12 @@ typedef struct stack
 
 /* STACKS */
 void	init_stacks(t_stack *stacks, int ac, char **av, bool writing_mode);
+
+/* STACKS->UTILS*/
 void	fill_pile(t_stack *stacks, t_pile *piles, int ac, char **av);
 void	check_doubles(t_stack *stacks, int *nums, int ac);
 void	nums_ranked(t_stack *stacks, int *nums, int ac);
+bool	valid_av(char av[]);
 
 /* ERROR */
 void	error(t_stack *stacks);

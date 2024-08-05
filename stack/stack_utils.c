@@ -6,7 +6,7 @@
 /*   By: antonimo <antonimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 16:28:35 by antonimo          #+#    #+#             */
-/*   Updated: 2024/08/05 13:15:16 by antonimo         ###   ########.fr       */
+/*   Updated: 2024/08/05 13:26:27 by antonimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,10 @@ void	fill_pile(t_stack *stacks, t_pile *piles, int ac, char **av)
 	}
 	check_doubles(stacks, nums, ac);
 	nums_ranked(nums, piles->array, ac);
+	piles->bottom = ac - 1;
+	free(nums);
 }
+
 bool	valid_av(char av[])
 {
 	int			sign;
