@@ -6,7 +6,7 @@
 /*   By: antonimo <antonimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 13:41:22 by antonimo          #+#    #+#             */
-/*   Updated: 2024/07/25 13:53:43 by antonimo         ###   ########.fr       */
+/*   Updated: 2024/08/06 11:29:25 by antonimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ bool	is_sorted(t_stack *stacks)
 		if (stacks->a.array[i] != rank)
 			return (false);
 		rank++;
-		/*i = next_down;*/
+		i = next_down(&stacks->a, i);
 	}
 	return (true);
 }

@@ -6,7 +6,7 @@
 /*   By: antonimo <antonimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 16:28:35 by antonimo          #+#    #+#             */
-/*   Updated: 2024/08/05 13:26:27 by antonimo         ###   ########.fr       */
+/*   Updated: 2024/08/06 10:45:47 by antonimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	fill_pile(t_stack *stacks, t_pile *piles, int ac, char **av)
 	i = 0;
 	while (av[i])
 	{
-		if (!valid_av(av[i])) /*Lo hace así porque cuando ATOI da mal, te devuelve 0, y 0 es un argumento válido*/
+		if (!valid_av(av[i]))
 			error(stacks);
 		nums[i] = ft_atoi(av[i]);
 		i++;
@@ -39,8 +39,8 @@ bool	valid_av(char av[])
 	int			sign;
 	long long	num;
 
-	sign = 1; /*Cambiar signo en caso de -*/
-	if (*av == '\0') /*Ponemos '\0' porque av son strings*/
+	sign = 1;
+	if (*av == '\0')
 		return (false);
 	if (*av == '-' || av == '+')
 	{
@@ -51,10 +51,9 @@ bool	valid_av(char av[])
 			return (false);
 	}
 	num = 0;
-	/*comprobado que los av son '-NUMEROS' o '+NUMEROS' y no son '-' o '+'*/
 	while (*av)
 	{
-		if (!ft_isdigit) /*cubrimos por si fuese '--' / '++' o '-LETRAS' / '+LETRAS'*/
+		if (!ft_isdigit)
 			return (false);
 		num = num * 10 + (*av - '0');
 		if ((sign == 1 && num > INT_MAX) || (sign == -1 && num < INT_MIN))

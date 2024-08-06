@@ -1,4 +1,8 @@
 Aug 5 -> Completada la inicialización de los stacks junto con la comprobación de argumentos válidos.
 Pila ordenada con el número ORDINAL de cada valor.
 
-Próximo día -> Completar la función sort, entendiendo qué hace "is sorted" primero.
+Aug 6 -> Añadido memset por seguridad a la inicialización de los valores en el array de la pila.
+Añadido lstclear para limpiar la lista de operaciones en caso de error.
+Repaso de lo que llevo hasta ahora con énfasis en el sort, entendiendo is_sorted y continuar para ver lógica.
+
+Próximo día -> Completar movimientos.
