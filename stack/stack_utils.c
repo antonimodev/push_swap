@@ -6,7 +6,7 @@
 /*   By: antonimo <antonimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 16:28:35 by antonimo          #+#    #+#             */
-/*   Updated: 2024/08/06 10:45:47 by antonimo         ###   ########.fr       */
+/*   Updated: 2024/08/07 12:09:38 by antonimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,4 +105,9 @@ void	nums_ranked(int *nums, int pile[], int ac)
 		pile[i] = count_bigger;
 		i++;
 	}
+}
+
+bool	is_full(t_pile *pile)
+{
+	return (pile->size == current_size(pile));
 }
