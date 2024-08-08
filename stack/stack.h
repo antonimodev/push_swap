@@ -6,7 +6,7 @@
 /*   By: antonimo <antonimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 12:24:41 by antonimo          #+#    #+#             */
-/*   Updated: 2024/08/06 10:51:58 by antonimo         ###   ########.fr       */
+/*   Updated: 2024/08/08 13:23:09 by antonimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ typedef struct pile
 {
 	int	*array;
 	int	size;
-	int	top; /*suponemos que es el valor "primero"*/
-	int	bottom; /*suponemos que es el valor "ultimo"*/
+	int	top; /*Es un índice que indica el elemento más reciente agregado*/
+	int	bottom; /*Es un índice que indica el elemento más antiguo*/
 }	t_pile;
 
 typedef struct stack
@@ -46,5 +46,8 @@ bool	valid_av(char av[]);
 
 /* ERROR */
 void	error(t_stack *stacks);
+
+/**/
+bool	is_full(t_pile *pile);
 
 #endif

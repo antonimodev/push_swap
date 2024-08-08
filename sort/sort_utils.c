@@ -6,13 +6,13 @@
 /*   By: antonimo <antonimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 13:03:07 by antonimo          #+#    #+#             */
-/*   Updated: 2024/08/07 12:19:30 by antonimo         ###   ########.fr       */
+/*   Updated: 2024/08/08 16:24:02 by antonimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stack.h"
 
-int	next_up(t_pile *pile, int index)
+int	next_up(t_pile *pile, int index) /*NEXT_UP*/
 {
 	if (current_size(pile) == 0)
 		return (index);
@@ -22,7 +22,7 @@ int	next_up(t_pile *pile, int index)
 		return (index - 1);
 }
 
-int	next_down(t_pile *pile, int index)
+int	next_down(t_pile *pile, int index) /*NEXT_DOWN*/
 {
 	if (current_size(pile) == 0) /*Si la pila esta vacía*/
 		return (index);
