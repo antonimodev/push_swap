@@ -5,4 +5,5 @@ Aug 6 -> Añadido memset por seguridad a la inicialización de los valores en el
 Añadido lstclear para limpiar la lista de operaciones en caso de error.
 Repaso de lo que llevo hasta ahora con énfasis en el sort, entendiendo is_sorted y continuar para ver lógica.
 
-Próximo día -> Completar movimientos.
+Aug 9-> Terminado los movimientos. Hay que revisar la lógica del reverse rotate ya que no parece tenerla a no ser
+que parta desde una condición específica.
