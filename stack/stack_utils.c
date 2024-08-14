@@ -12,7 +12,7 @@
 
 #include "stack.h"
 
-void	fill_pile(t_stack *stacks, t_pile *piles, int ac, char **av)
+void	fill_pile(t_stack *stacks, t_pile *pile, int ac, char **av)
 {
 	int	*nums;
 	int	i;
@@ -29,8 +29,8 @@ void	fill_pile(t_stack *stacks, t_pile *piles, int ac, char **av)
 		i++;
 	}
 	check_doubles(stacks, nums, ac);
-	nums_ranked(nums, piles->array, ac);
-	piles->bottom = ac - 1;
+	nums_ranked(nums, pile->array, ac);
+	pile->bottom = ac - 1;
 	free(nums);
 }
 
@@ -85,6 +85,7 @@ void	check_doubles(t_stack *stacks, int *nums, int ac)
 	}
 }
 
+/* Nums ranked calcula el orden en el que tiene que ir cada valor y lo almacena en la pila*/
 void	nums_ranked(int *nums, int pile[], int ac)
 {
 	int	i;

@@ -37,7 +37,7 @@ bool	is_sorted(t_stack *stacks)
 		if (stacks->a.array[i] != rank)
 			return (false);
 		rank++;
-		i = next_index(&stacks->a, i);
+		i = next_down(&stacks->a, i);
 	}
 	return (true);
 }
