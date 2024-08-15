@@ -10,4 +10,8 @@ que parta desde una condición específica.
 
 Aug 14 -> Terminado sort three, apuntado en excalidraw de 42.
 
-Próximo día -> Terminar sort five y revisar algoritmo de optimización.
+Aug 15 -> Terminado sort five, si el primer índice no tiene un valor de 1º o 2º, rota hasta encontrarlos. Luego pushea
+los valores, ordena con un sort three, y devuelve en orden descendente desde la pila b los valores restantes (queda ordenado).
+
+Próximo día -> He calculado que quedan 38 funciones, da una media de 4 funciones por día para terminarlo en Agosto.
+Entender poco a poco que son los tipos de dato enum, y ver qué utilidad tienen los chunks.

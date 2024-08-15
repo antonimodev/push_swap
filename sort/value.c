@@ -1,6 +1,6 @@
 #include "stack.h"
 
-int	value(t_pile pile, int n)
+int	value(t_pile *pile, int n)
 {
 	int	i;
 

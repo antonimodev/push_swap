@@ -18,11 +18,15 @@ void	sort(t_stack *stacks)
 		return ;
 	else if (stacks->a.size == 3)
 	{
-		//funcion de sort_three_a(stacks)
+		sort_three_a(stacks);
 	}
 	else if (stacks->a.size == 5)
 	{
+		sort_five_a(stacks);
 	}
+	else
+		/*chunk_sort(stacks);
+	post_sort_optimization(stacks);*/
 }
 
 bool	is_sorted(t_stack *stacks)

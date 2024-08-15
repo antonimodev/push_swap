@@ -18,6 +18,9 @@
 # include "stdbool.h"
 # include "limits.h"
 
+/* TIPOS DE DATOS PARA CHUNKS */
+
+/* TIPOS DE DATOS EN EL STACK */
 typedef struct pile
 {
 	int	*array;

@@ -12,7 +12,7 @@
 
 #include "stack.h"
 
-void	sort_three(t_stack *stack)
+void	sort_three_a(t_stack *stack)
 {
 	int	first;
 	int	second;
@@ -37,4 +37,20 @@ void	sort_three(t_stack *stack)
 		rotate_a(&stack->a);
 		swap_a(&stack->a);
 	}
+}
+
+void sort_five_a(t_stack *stack)
+{
+	while (current_size(&stack->a) > 3)
+	{
+		if (value(&stack->a, 1) == 1 || value(&stack->a, 1) == 2)
+			push_b(stack);
+		else
+			rotate_a(stack);
+	}
+	if (value(&stack->b, 1) < value(&stack->b, 2))
+		swap_b(stack);
+	sort_three_a(stack);
+	push_a(stack);
+	push_a(stack);
 }
