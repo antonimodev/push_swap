@@ -20,6 +20,27 @@
 
 /* TIPOS DE DATOS PARA CHUNKS */
 
+enum	e_loc
+{
+	TOP_A,
+	BOTTOM_A,
+	TOP_B,
+	BOTTOM_B
+};
+
+typedef struct s_chunk
+{
+	enum e_loc	loc;
+	int			size;
+}	t_chunk;
+
+typedef struct s_split_dest
+{
+	t_chunk	min;
+	t_chunk	mid;
+	t_chunk	max;
+}	t_split_dest;
+
 /* TIPOS DE DATOS EN EL STACK */
 typedef struct pile
 {
