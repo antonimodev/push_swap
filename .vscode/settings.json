@@ -1,7 +1,10 @@
 {
 	"files.associations": {
-		"stack.h": "c",
-		"stdbool.h": "c",
-		"limits.h": "c"
+		"type_traits": "c",
+		"cmath": "c",
+		"limits": "c",
+		"*.tcc": "c",
+		"typeinfo": "c",
+		"compare": "c"
 	}
 }

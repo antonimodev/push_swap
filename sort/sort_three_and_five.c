@@ -6,7 +6,7 @@
 /*   By: antonimo <antonimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 12:18:05 by antonimo          #+#    #+#             */
-/*   Updated: 2024/08/14 13:55:08 by antonimo         ###   ########.fr       */
+/*   Updated: 2024/08/19 10:10:43 by antonimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	sort_three_a(t_stack *stack)
 	}
 }
 
-void sort_five_a(t_stack *stack)
+void	sort_five_a(t_stack *stack)
 {
 	while (current_size(&stack->a) > 3)
 	{
