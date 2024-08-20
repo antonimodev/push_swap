@@ -6,13 +6,13 @@
 /*   By: antonimo <antonimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 10:23:37 by antonimo          #+#    #+#             */
-/*   Updated: 2024/08/19 10:23:42 by antonimo         ###   ########.fr       */
+/*   Updated: 2024/08/20 11:51:16 by antonimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stack.h"
 
-void	chunk_sort(t_stack *stack)
+void	chunk_sort(t_stack *stack) /* INit chunk creo que tiene mas sentido para el nombre */
 {
 	t_chunk chunk_all;
 
@@ -26,8 +26,7 @@ void	rec_chunk_sort(t_stack *stack, t_chunk *to_sort) /* to_sort puede ser chunk
 	t_split_dest	dest;
 
 	chunk_to_the_top(stack, to_sort); /* utiliza el stack para comprobar tamaño de la pila || La primera vez que se llama no hace nada ya que es TOP_A*/
-	/*easy_sort(stack, to_sort);  easy_sort -> chunk value -> lock to stack
-	                              easy_sort -> chunk_value -> easy_sort_second -> handdle_top_b /bottom_a/bottom_b*/
+	easy_sort(stack, to_sort);
 	if (to_sort->size <= 3)
 	{
 		if (to_sort->size == 3)

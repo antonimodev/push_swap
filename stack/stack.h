@@ -6,7 +6,7 @@
 /*   By: antonimo <antonimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 12:24:41 by antonimo          #+#    #+#             */
-/*   Updated: 2024/08/09 10:51:04 by antonimo         ###   ########.fr       */
+/*   Updated: 2024/08/20 10:36:51 by antonimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ enum	e_loc
 	TOP_A,
 	BOTTOM_A,
 	TOP_B,
-	BOTTOM_B
+	BOTTOM_B,
 };
 
 typedef struct s_chunk

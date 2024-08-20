@@ -1,0 +1,52 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   move.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: antonimo <antonimo@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/20 11:58:58 by antonimo          #+#    #+#             */
+/*   Updated: 2024/08/20 12:28:33 by antonimo         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "stack.h"
+
+int	move_from_to(t_stack *stack, enum e_loc from, enum e_loc to) /* En principio se podría hacer void ya que no se utiliza el int */
+{
+	if (from == TOP_A)
+		move_from_top_a(stack, to);
+	else if (from == TOP_B)
+		move_from_top_b(stack, to);
+	else if (from == BOTTOM_A)
+		move_from_bottom_a(stack, to);
+	else if (from == BOTTOM_B)
+		move_from_bottom_b(stack, to);
+	return (1);
+}
+
+void	move_from_top_a(t_stack *stack, enum e_loc to)
+{
+	if (to == TOP_B)
+		push_b(stack);
+	else if (to == BOTTOM_A)
+		rotate_a(stack);
+	else if (to == BOTTOM_B)
+	{
+		push_b(stack);
+		rotate_b(stack);
+	}
+}
+
+void	move_from_top_b(t_stack *stack, enum e_loc to)
+{
+	if (to == TOP_A)
+		push_a(stack);
+	else if (to == BOTTOM_A)
+		rotate_b(stack);
+	else if (to == BOTTOM_B)
+	{
+		push_a(stack);
+		rotate_a(stack);
+	}
+}
