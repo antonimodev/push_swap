@@ -6,7 +6,7 @@
 /*   By: antonimo <antonimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 10:22:31 by antonimo          #+#    #+#             */
-/*   Updated: 2024/08/20 11:52:56 by antonimo         ###   ########.fr       */
+/*   Updated: 2024/08/23 11:05:36 by antonimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ void	easy_sort(t_stack *stack, t_chunk *to_sort)
 int	chunk_value(t_stack *stack, t_chunk *chunk, int n) /*Revisar esta,
 		es similar a la funcion value*/
 {
-	enum e_loc loc;
-	t_pile *pile;
-	int i;
+	enum e_loc	loc;
+	t_pile		*pile;
+	int			i;
 
 	loc = chunk->loc;
 	pile = loc_to_pile(stack, loc);

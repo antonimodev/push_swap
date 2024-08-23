@@ -6,7 +6,7 @@
 /*   By: antonimo <antonimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 12:24:41 by antonimo          #+#    #+#             */
-/*   Updated: 2024/08/20 10:36:51 by antonimo         ###   ########.fr       */
+/*   Updated: 2024/08/23 11:33:02 by antonimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 # include "limits.h"
 
 /* TIPOS DE DATOS PARA CHUNKS */
-
 enum	e_loc
 {
 	TOP_A,
@@ -99,4 +98,9 @@ void	swap_a(t_pile *pile);
 void	swap_b(t_pile *pile);
 void	swap_ab(t_pile *pile);
 
+/* OPTI TO THE TOP */
+void	chunk_to_the_top(t_stack *stack, t_chunk *to_sort);
+
+/* CHUNK SORT */
+void	chunk_sort(t_stack *stack);
 #endif

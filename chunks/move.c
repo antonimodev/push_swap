@@ -6,7 +6,7 @@
 /*   By: antonimo <antonimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 11:58:58 by antonimo          #+#    #+#             */
-/*   Updated: 2024/08/20 12:28:33 by antonimo         ###   ########.fr       */
+/*   Updated: 2024/08/23 11:44:11 by antonimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,40 @@ void	move_from_top_b(t_stack *stack, enum e_loc to)
 		rotate_b(stack);
 	else if (to == BOTTOM_B)
 	{
+		push_a(stack);
+		rotate_a(stack);
+	}
+}
+
+void	move_from_bottom_a(t_stack *stack, enum e_loc to)
+{
+	if (to == TOP_A)
+		r_rotate_a(stack);
+	else if (to == BOTTOM_B)
+	{
+		r_rotate_a(stack);
+		push_b(stack);
+	}
+	else if (to == TOP_B)
+	{
+		r_rotate_a(stack);
+		push_b(stack);
+		rotate_b(stack);
+	}
+}
+
+void	move_from_bottom_b(t_stack *stack, enum eloc to)
+{
+	if (to == TOP_B)
+		r_rotate_b(stack);
+	else if (to == TOP_A)
+	{
+		r_rotate_b(stack);
+		push_a(stack);
+	}
+	else if (BOTTOM_A)
+	{
+		r_rotate_b(stack);
 		push_a(stack);
 		rotate_a(stack);
 	}
