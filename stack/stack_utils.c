@@ -6,7 +6,7 @@
 /*   By: antonimo <antonimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 16:28:35 by antonimo          #+#    #+#             */
-/*   Updated: 2024/08/07 12:09:38 by antonimo         ###   ########.fr       */
+/*   Updated: 2024/09/02 13:43:43 by antonimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	fill_pile(t_stack *stacks, t_pile *pile, int ac, char **av)
 	{
 		if (!valid_av(av[i]))
 			error(stacks);
+			/*meter en nums el atoi de cada parte del split*/
 		nums[i] = ft_atoi(av[i]);
 		i++;
 	}
