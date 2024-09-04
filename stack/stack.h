@@ -6,7 +6,7 @@
 /*   By: antonimo <antonimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 12:24:41 by antonimo          #+#    #+#             */
-/*   Updated: 2024/08/26 12:10:07 by antonimo         ###   ########.fr       */
+/*   Updated: 2024/09/04 12:01:29 by antonimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,23 @@
 # include "stdlib.h"
 # include "stdbool.h"
 # include "limits.h"
+
+/* TIPOS DE DATOS PARA OPERACIONES */
+enum	e_mov
+{
+	null_op,
+	pa,
+	pb,
+	ra,
+	rb,
+	rr,
+	rra,
+	rrb,
+	rrr,
+	sa,
+	sb,
+	ss
+};
 
 /* TIPOS DE DATOS PARA CHUNKS */
 enum	e_loc
