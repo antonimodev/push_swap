@@ -6,7 +6,7 @@
 /*   By: antonimo <antonimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 21:08:35 by ugerkens          #+#    #+#             */
-/*   Updated: 2024/09/04 13:33:56 by antonimo         ###   ########.fr       */
+/*   Updated: 2024/09/06 12:48:58 by antonimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,21 @@
 
 void	init_data(t_ps *data, int argc, char **argv)
 {
+	char	**split_argv;
+
+	split_argv = argv;
+	if (argc == 2)
+	{
+		split_argv = process_argv(&argc, argv);
+		if (!split_argv)
+			exit(EXIT_FAILURE);
+	}
+	else
+		++split_argv;
 	--argc;
 	init_stack(data, &data->a, argc);
 	init_stack(data, &data->b, argc);
-	fill_stack(data, &data->a, argc, ++argv);
+	fill_stack(data, &data->a, argc, split_argv);
 	/* data->writing_mode = writing_mode; */
 	data->op_list = NULL;
 }

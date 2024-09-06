@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_init.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ugerkens <ugerkens@student.s19.be>         +#+  +:+       +#+        */
+/*   By: antonimo <antonimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 21:09:08 by ugerkens          #+#    #+#             */
-/*   Updated: 2023/07/28 18:44:51 by ugerkens         ###   ########.fr       */
+/*   Updated: 2024/09/06 13:11:53 by antonimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,4 +102,19 @@ void	random_to_rank(int *numbers, int *rank, int size)
 		rank[i] = count_smaller;
 		i++;
 	}
+}
+
+char	**process_argv(int *argc, char **argv)
+{
+	int		i;
+	char	**splitted_argv;
+
+	if (argv == NULL)
+		return (NULL);
+	i = 0;
+	splitted_argv = ft_split(argv[1], ' ');
+	while (splitted_argv[i])
+		i++;
+	*argc = i + 1;
+	return (splitted_argv);
 }
