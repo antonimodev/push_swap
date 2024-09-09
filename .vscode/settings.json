@@ -5,6 +5,7 @@
 		"limits": "c",
 		"*.tcc": "c",
 		"typeinfo": "c",
-		"compare": "c"
+		"compare": "c",
+		"stack.h": "c"
 	}
 }

@@ -31,21 +31,18 @@ void	r_rotate(t_pile *pile)
 void	r_rotate_a(t_stack *stack)
 {
 	r_rotate(&stack->a);
-	if (stack->writing_mode)
-		/*save_op*/
+		save_op(stack, rra);
 }
 
 void	r_rotate_b(t_stack *stack)
 {
 	r_rotate(&stack->b);
-	if (stack->writing_mode)
-		/*save_op*/
+		save_op(stack, rrb);
 }
 
 void	r_rotate_ab(t_stack *stack)
 {
 	r_rotate(&stack->a);
 	r_rotate(&stack->b);
-	if (stack->writing_mode)
-		/*save_op*/
+		save_op(stack, rrr);
 }

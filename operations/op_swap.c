@@ -27,14 +27,14 @@ void	swap_a(t_stack *stack)
 {
 	swap(&stack->a);
 	if (stack->writing_mode)
-		/*save_op*/
+	save_op(stack, sa);
 }
 
 void	swap_b(t_stack *stack)
 {
 	swap(&stack->b);
 	if (stack->writing_mode)
-		/*save_op*/
+	save_op(stack, sb);
 }
 
 void	swap_ab(t_stack *stack)
@@ -42,5 +42,5 @@ void	swap_ab(t_stack *stack)
 	swap(&stack->a);
 	swap(&stack->b);
 	if (stack->writing_mode)
-		/*save_op*/
+	save_op(stack, ss);
 }

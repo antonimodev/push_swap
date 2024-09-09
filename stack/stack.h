@@ -71,12 +71,11 @@ typedef struct stack
 	t_pile	a;
 	t_pile	b;
 	t_list	*op_list; /*Lista de operaciones, aquí se supone que se guardan*/
-	bool	writing_mode; /*permite o no permite que se registren operaciones
-	en la lista*/
 }	t_stack;
 
 /* STACKS */
-void	init_stacks(t_stack *stacks, int ac, char **av, bool writing_mode);
+void	init_stacks(t_stack *stacks, int ac, char **av);
+char	**process_av(int *ac, char **av);
 
 /* STACKS->UTILS*/
 void	fill_pile(t_stack *stacks, t_pile *piles, int ac, char **av);

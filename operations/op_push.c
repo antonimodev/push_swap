@@ -28,12 +28,10 @@ void	push(t_pile *src, t_pile *dest)
 void	push_a(t_stack *stack)
 {
 	push(&stack->a, &stack->b);
-	/*if (stack->writing_mode)
-		save_op(stack, pa);*/
+	save_op(stack, pa);
 }
 void	push_b(t_stack *stack)
 {
 	push(&stack->b, &stack->a);
-	/*if (stack->writing_mode)
-		save_op(stack, pb);*/
+	save_op(stack, pb);
 }

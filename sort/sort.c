@@ -26,7 +26,6 @@ void	sort(t_stack *stacks)
 	}
 	else
 		chunk_sort(stacks);
-	/*post_sort_optimization(stacks);*/
 }
 
 bool	is_sorted(t_stack *stacks)

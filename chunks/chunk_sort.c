@@ -26,19 +26,15 @@ void	rec_chunk_sort(t_stack *stack, t_chunk *to_sort) /* to_sort puede ser chunk
 	t_split_dest	dest;
 
 	chunk_to_the_top(stack, to_sort); /* utiliza el stack para comprobar tamaño de la pila || La primera vez que se llama no hace nada ya que es TOP_A*/
-	easy_sort(stack, to_sort);
-	if (to_sort->size <= 3)
+	if (to_sort->size < 3)
 	{
-		if (to_sort->size == 3)
-			/*sort_three(stack, to_sort);*/
 		else if (to_sort->size == 2)
 			sort_two(stack, to_sort);
 		else if (to_sort->size == 1)
 			sort_one(stack, to_sort);
 		return ;
 	}
-	/*chunk_split(stack, to_sort, &dest);  innit_size -> set_split_loc -> set_third_pivots -> chunk_max_value -> split max_reduction -> a_partly_sort 
-											split max_reduction -> is_consecutive*/
+	chunk_split(stack, to_sort, &dest)
 	rec_chunk_sort(stack, &dest.max);
 	rec_chunk_sort(stack, &dest.mid);
 	rec_chunk_sort(stack, &dest.min);
