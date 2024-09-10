@@ -6,7 +6,7 @@
 /*   By: antonimo <antonimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 10:45:57 by antonimo          #+#    #+#             */
-/*   Updated: 2024/08/08 16:23:42 by antonimo         ###   ########.fr       */
+/*   Updated: 2024/09/10 14:02:55 by antonimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	push_a(t_stack *stack)
 	push(&stack->a, &stack->b);
 	save_op(stack, pa);
 }
+
 void	push_b(t_stack *stack)
 {
 	push(&stack->b, &stack->a);

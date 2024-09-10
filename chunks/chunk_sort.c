@@ -6,7 +6,7 @@
 /*   By: antonimo <antonimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 10:23:37 by antonimo          #+#    #+#             */
-/*   Updated: 2024/08/23 12:28:51 by antonimo         ###   ########.fr       */
+/*   Updated: 2024/09/10 17:48:13 by antonimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	sort_two(t_stack *stack, t_chunk *to_sort)
 		move_from_to(stack, to_sort->loc, TOP_A);
 		move_from_to(stack, to_sort->loc, TOP_A);
 	}
-	if (value(&stack->a, 1) > value(&stack->a, 2))
+	if (stack->a.array[0] > stack->a.array[1])
 		swap_a(stack);
 	to_sort->size = to_sort->size - 2;
 }

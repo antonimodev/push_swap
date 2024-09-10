@@ -6,7 +6,7 @@
 /*   By: antonimo <antonimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 16:28:35 by antonimo          #+#    #+#             */
-/*   Updated: 2024/09/02 13:43:43 by antonimo         ###   ########.fr       */
+/*   Updated: 2024/09/10 13:13:44 by antonimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ void	fill_pile(t_stack *stacks, t_pile *pile, int ac, char **av)
 	{
 		if (!valid_av(av[i]))
 			error(stacks);
-			/*meter en nums el atoi de cada parte del split*/
 		nums[i] = ft_atoi(av[i]);
 		i++;
 	}
@@ -54,7 +53,7 @@ bool	valid_av(char av[])
 	num = 0;
 	while (*av)
 	{
-		if (!ft_isdigit)
+		if (!ft_isdigit(av))
 			return (false);
 		num = num * 10 + (*av - '0');
 		if ((sign == 1 && num > INT_MAX) || (sign == -1 && num < INT_MIN))
@@ -73,6 +72,7 @@ void	check_doubles(t_stack *stacks, int *nums, int ac)
 	j = i + 1;
 	while (i < ac)
 	{
+		j = i + 1;
 		while (j < ac)
 		{
 			if (nums[i] == nums[j])
@@ -86,8 +86,7 @@ void	check_doubles(t_stack *stacks, int *nums, int ac)
 	}
 }
 
-/* Nums ranked calcula el orden en el que tiene que ir cada valor y lo almacena en la pila*/
-void	nums_ranked(int *nums, int pile[], int ac)
+void	nums_ranked(int *nums, int *pile, int ac)
 {
 	int	i;
 	int	j;

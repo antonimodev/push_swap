@@ -6,7 +6,7 @@
 /*   By: antonimo <antonimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/08 12:59:27 by antonimo          #+#    #+#             */
-/*   Updated: 2024/08/08 16:58:20 by antonimo         ###   ########.fr       */
+/*   Updated: 2024/09/10 14:42:44 by antonimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	rotate(t_pile *pile)
 		pile->top = next_down(pile, pile->top);
 	}
 }
+
 void	rotate_a(t_stack *stack)
 {
 	rotate(&stack->a);

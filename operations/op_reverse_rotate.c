@@ -6,7 +6,7 @@
 /*   By: antonimo <antonimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 10:57:50 by antonimo          #+#    #+#             */
-/*   Updated: 2024/08/27 13:34:30 by antonimo         ###   ########.fr       */
+/*   Updated: 2024/09/10 14:02:42 by antonimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,18 +31,18 @@ void	r_rotate(t_pile *pile)
 void	r_rotate_a(t_stack *stack)
 {
 	r_rotate(&stack->a);
-		save_op(stack, rra);
+	save_op(stack, rra);
 }
 
 void	r_rotate_b(t_stack *stack)
 {
 	r_rotate(&stack->b);
-		save_op(stack, rrb);
+	save_op(stack, rrb);
 }
 
 void	r_rotate_ab(t_stack *stack)
 {
 	r_rotate(&stack->a);
 	r_rotate(&stack->b);
-		save_op(stack, rrr);
+	save_op(stack, rrr);
 }

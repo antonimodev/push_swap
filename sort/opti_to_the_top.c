@@ -6,7 +6,7 @@
 /*   By: antonimo <antonimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 10:22:31 by antonimo          #+#    #+#             */
-/*   Updated: 2024/08/23 11:05:36 by antonimo         ###   ########.fr       */
+/*   Updated: 2024/09/10 10:08:10 by antonimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,23 +20,8 @@ void	chunk_to_the_top(t_stack *stack, t_chunk *to_sort)
 		to_sort->loc = TOP_A;
 }
 
-void	easy_sort(t_stack *stack, t_chunk *to_sort)
-{
-	while (to_sort->loc != TOP_A && to_sort->size)
-	{
-		if (value(&stack->a, 1) == chunk_value(stack, to_sort, 1) + 1
-			&& to_sort->size > 0)
-			sort_one(stack, to_sort);
-		else if (value(&stack->a, 1) == chunk_value(stack, to_sort, 2) + 1
-			&& to_sort->size > 1)
-			/*easy_sort_second(stack, to_sort);*/
-			else
-				break ;
-	}
-}
-
-int	chunk_value(t_stack *stack, t_chunk *chunk, int n) /*Revisar esta,
-		es similar a la funcion value*/
+int	chunk_value(t_stack *stack, t_chunk *chunk, int n) /*Revisar esta, 
+es similar a la funcion value*/
 {
 	enum e_loc	loc;
 	t_pile		*pile;

@@ -6,7 +6,7 @@
 /*   By: antonimo <antonimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 12:29:05 by antonimo          #+#    #+#             */
-/*   Updated: 2024/08/27 12:32:21 by antonimo         ###   ########.fr       */
+/*   Updated: 2024/09/10 14:02:06 by antonimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,12 @@ void	swap(t_pile *pile)
 void	swap_a(t_stack *stack)
 {
 	swap(&stack->a);
-	if (stack->writing_mode)
 	save_op(stack, sa);
 }
 
 void	swap_b(t_stack *stack)
 {
 	swap(&stack->b);
-	if (stack->writing_mode)
 	save_op(stack, sb);
 }
 
@@ -41,6 +39,5 @@ void	swap_ab(t_stack *stack)
 {
 	swap(&stack->a);
 	swap(&stack->b);
-	if (stack->writing_mode)
 	save_op(stack, ss);
 }

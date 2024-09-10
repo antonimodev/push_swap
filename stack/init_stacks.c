@@ -6,13 +6,13 @@
 /*   By: antonimo <antonimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 13:51:11 by antonimo          #+#    #+#             */
-/*   Updated: 2024/08/06 11:07:39 by antonimo         ###   ########.fr       */
+/*   Updated: 2024/09/10 14:41:14 by antonimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stack.h"
 
-void	init_stacks(t_stack *stack, int ac, char **av)
+void	init_stacks(t_stack *stacks, int ac, char **av)
 {
 	char	**split_av;
 
@@ -26,10 +26,10 @@ void	init_stacks(t_stack *stack, int ac, char **av)
 	else
 		++split_av;
 	--ac;
-	init_pile(stack, &stack->a, ac);
-	init_pile(stack, &stack->b, ac);
-	fill_pile(stack, &stack->a, ac, split_av);
-	stack->op_list = NULL;
+	init_pile(stacks, &stacks->a, ac);
+	init_pile(stacks, &stacks->b, ac);
+	fill_pile(stacks, &stacks->a, ac, split_av);
+	stacks->op_list = NULL;
 }
 
 void	init_pile(t_stack *stacks, t_pile *pile, int ac)
@@ -40,7 +40,7 @@ void	init_pile(t_stack *stacks, t_pile *pile, int ac)
 	pile->top = 0;
 	pile->bottom = 0;
 	pile->size = ac;
-	ft_memset(&pile->array, 0, ac); /*Lo hacemos por seguridad*/
+	ft_memset(&pile->array, 0, ac);
 }
 
 char	**process_av(int *ac, char **av)
