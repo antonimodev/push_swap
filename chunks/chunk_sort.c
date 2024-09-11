@@ -6,7 +6,7 @@
 /*   By: antonimo <antonimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 10:23:37 by antonimo          #+#    #+#             */
-/*   Updated: 2024/09/10 17:48:13 by antonimo         ###   ########.fr       */
+/*   Updated: 2024/09/11 13:07:13 by antonimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	rec_chunk_sort(t_stack *stack, t_chunk *to_sort) /* to_sort puede ser chunk
 	t_split_dest	dest;
 
 	chunk_to_the_top(stack, to_sort); /* utiliza el stack para comprobar tamaño de la pila || La primera vez que se llama no hace nada ya que es TOP_A*/
-	if (to_sort->size < 3)
+	if (to_sort->size < 3) 
 	{
 		else if (to_sort->size == 2)
 			sort_two(stack, to_sort);
@@ -34,7 +34,7 @@ void	rec_chunk_sort(t_stack *stack, t_chunk *to_sort) /* to_sort puede ser chunk
 			sort_one(stack, to_sort);
 		return ;
 	}
-	chunk_split(stack, to_sort, &dest)
+	chunk_split(stack, to_sort, &dest);
 	rec_chunk_sort(stack, &dest.max);
 	rec_chunk_sort(stack, &dest.mid);
 	rec_chunk_sort(stack, &dest.min);

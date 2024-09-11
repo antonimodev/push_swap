@@ -6,13 +6,13 @@
 /*   By: antonimo <antonimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 10:45:36 by antonimo          #+#    #+#             */
-/*   Updated: 2024/08/27 12:17:32 by antonimo         ###   ########.fr       */
+/*   Updated: 2024/09/11 13:14:25 by antonimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stack.h"
 
-void	chunk_split(t_ps *stack, t_chunk *to_split, t_split_dest *dest)
+void	chunk_split(t_stack *stack, t_chunk *to_split, t_split_dest *dest)
 {
 	int	pivot_1;
 	int	pivot_2;
@@ -26,16 +26,16 @@ void	chunk_split(t_ps *stack, t_chunk *to_split, t_split_dest *dest)
 	dest->max.size = 0;
 	split_loc(to_split->loc, &dest->min, &dest->mid, &dest->max);
 	set_pivots(to_split->loc, to_split->size, &pivot_1, &pivot_2);
-	max_value = chunk_max_value(data, to_split);
+	max_value = chunk_max_value(stack, to_split);
 	while (to_split->size--)
 	{
-		next_value = chunk_value(data, to_split, 1);
+		next_value = chunk_value(stack, to_split, 1);
 		if (next_value > max_value - pivot_2)
-			dest->max.size += move_from_to(data, to_split->loc, dest->max.loc);
+			dest->max.size += move_from_to(stack, to_split->loc, dest->max.loc);
 		else if (next_value > max_value - pivot_1)
-			dest->mid.size += move_from_to(data, to_split->loc, dest->mid.loc);
+			dest->mid.size += move_from_to(stack, to_split->loc, dest->mid.loc);
 		else
-			dest->min.size += move_from_to(data, to_split->loc, dest->min.loc);
+			dest->min.size += move_from_to(stack, to_split->loc, dest->min.loc);
 	}
 }
 
