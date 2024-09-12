@@ -6,7 +6,7 @@
 /*   By: antonimo <antonimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 12:24:41 by antonimo          #+#    #+#             */
-/*   Updated: 2024/09/12 11:38:33 by antonimo         ###   ########.fr       */
+/*   Updated: 2024/09/12 14:28:43 by antonimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ typedef struct s_split_dest
 }	t_split_dest;
 
 /* STACK  */
-typedef struct pile
+typedef struct s_pile
 {
 	int	*array;
 	int	size;
@@ -85,7 +85,7 @@ void		fill_pile(t_stack *stacks, t_pile *piles, int ac, char **av);
 /* STACKS UTILITIES */
 bool		valid_av(char *av);
 void		check_doubles(t_stack *stacks, int *nums, int ac);
-void		nums_ranked(t_stack *stacks, int *nums, int ac);
+void		nums_ranked(int *nums, int *pile, int ac);
 
 /* ERROR */
 void		error(t_stack *stacks);
