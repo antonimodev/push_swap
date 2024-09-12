@@ -6,11 +6,11 @@
 /*   By: antonimo <antonimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 13:51:11 by antonimo          #+#    #+#             */
-/*   Updated: 2024/09/10 14:41:14 by antonimo         ###   ########.fr       */
+/*   Updated: 2024/09/12 10:56:28 by antonimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stack.h"
+#include "push_swap.h"
 
 void	init_stacks(t_stack *stacks, int ac, char **av)
 {
@@ -32,17 +32,6 @@ void	init_stacks(t_stack *stacks, int ac, char **av)
 	stacks->op_list = NULL;
 }
 
-void	init_pile(t_stack *stacks, t_pile *pile, int ac)
-{
-	pile->array = malloc(ac * sizeof(int));
-	if (!pile->array)
-		error(stacks);
-	pile->top = 0;
-	pile->bottom = 0;
-	pile->size = ac;
-	ft_memset(&pile->array, 0, ac);
-}
-
 char	**process_av(int *ac, char **av)
 {
 	int		i;
@@ -56,4 +45,37 @@ char	**process_av(int *ac, char **av)
 		i++;
 	*ac = i + 1;
 	return (splitted_av);
+}
+
+void	init_pile(t_stack *stacks, t_pile *pile, int ac)
+{
+	pile->array = malloc(ac * sizeof(int));
+	if (!pile->array)
+		error(stacks);
+	pile->top = 0;
+	pile->bottom = 0;
+	pile->size = ac;
+	ft_memset(&pile->array, 0, ac);
+}
+
+void	fill_pile(t_stack *stacks, t_pile *pile, int ac, char **av)
+{
+	int	*nums;
+	int	i;
+
+	nums = malloc(ac * sizeof(int));
+	if (!nums)
+		error(stacks);
+	i = 0;
+	while (av[i])
+	{
+		if (!valid_av(av[i]))
+			error(stacks);
+		nums[i] = ft_atoi(av[i]);
+		i++;
+	}
+	check_doubles(stacks, nums, ac);
+	nums_ranked(nums, pile->array, ac);
+	pile->bottom = ac - 1;
+	free(nums);
 }

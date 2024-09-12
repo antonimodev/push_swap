@@ -6,11 +6,38 @@
 /*   By: antonimo <antonimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 13:03:07 by antonimo          #+#    #+#             */
-/*   Updated: 2024/09/10 14:38:33 by antonimo         ###   ########.fr       */
+/*   Updated: 2024/09/12 11:11:13 by antonimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stack.h"
+#include "push_swap.h"
+
+bool	is_sorted(t_stack *stacks)
+{
+	int	i;
+	int	rank;
+
+	i = 0;
+	rank = 1;
+	while (rank <= stacks->a.size)
+	{
+		if (stacks->a.array[i] != rank)
+			return (false);
+		rank++;
+		i = next_down(&stacks->a, i);
+	}
+	return (true);
+}
+
+int	next_down(t_pile *pile, int index)
+{
+	if (current_size(pile) == 0)
+		return (index);
+	if (index == pile->size - 1)
+		return (0);
+	else
+		return (index + 1);
+}
 
 int	next_up(t_pile *pile, int index)
 {
@@ -22,14 +49,9 @@ int	next_up(t_pile *pile, int index)
 		return (index - 1);
 }
 
-int	next_down(t_pile *pile, int index)
+bool	is_full(t_pile *pile)
 {
-	if (current_size(pile) == 0)
-		return (index);
-	if (index == pile->size - 1)
-		return (0);
-	else
-		return (index + 1);
+	return (pile->size == current_size(pile));
 }
 
 int	current_size(t_pile *pile)

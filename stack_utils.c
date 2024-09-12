@@ -6,35 +6,13 @@
 /*   By: antonimo <antonimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 16:28:35 by antonimo          #+#    #+#             */
-/*   Updated: 2024/09/10 13:13:44 by antonimo         ###   ########.fr       */
+/*   Updated: 2024/09/12 10:57:54 by antonimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stack.h"
+#include "push_swap.h"
 
-void	fill_pile(t_stack *stacks, t_pile *pile, int ac, char **av)
-{
-	int	*nums;
-	int	i;
-
-	nums = malloc(ac * sizeof(int));
-	if (!nums)
-		error(stacks);
-	i = 0;
-	while (av[i])
-	{
-		if (!valid_av(av[i]))
-			error(stacks);
-		nums[i] = ft_atoi(av[i]);
-		i++;
-	}
-	check_doubles(stacks, nums, ac);
-	nums_ranked(nums, pile->array, ac);
-	pile->bottom = ac - 1;
-	free(nums);
-}
-
-bool	valid_av(char av[])
+bool	valid_av(char *av)
 {
 	int			sign;
 	long long	num;
@@ -106,9 +84,4 @@ void	nums_ranked(int *nums, int *pile, int ac)
 		pile[i] = count_bigger;
 		i++;
 	}
-}
-
-bool	is_full(t_pile *pile)
-{
-	return (pile->size == current_size(pile));
 }

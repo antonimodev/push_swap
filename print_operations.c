@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   op_utils.c                                         :+:      :+:    :+:   */
+/*   print_operations.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: antonimo <antonimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/27 21:09:02 by ugerkens          #+#    #+#             */
-/*   Updated: 2024/09/04 13:29:16 by antonimo         ###   ########.fr       */
+/*   Created: 2024/09/12 11:33:38 by antonimo          #+#    #+#             */
+/*   Updated: 2024/09/12 11:37:09 by antonimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stack.h"
+#include "push_swap.h"
 
-void	save_op(t_ps *data, enum e_op op)
+void	save_op(t_stack *stack, enum e_op op)
 {
 	t_list	*new;
 
 	new = ft_lstnew((void *)(uintptr_t)op);
 	if (!new)
-		error(data);
-	ft_lstadd_back(&data->op_list, new);
+		error(stack);
+	ft_lstadd_back(&stack->op_list, new);
 }
 
 void	print_operations(t_list *head)

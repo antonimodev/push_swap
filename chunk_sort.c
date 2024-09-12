@@ -6,27 +6,27 @@
 /*   By: antonimo <antonimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 10:23:37 by antonimo          #+#    #+#             */
-/*   Updated: 2024/09/11 13:07:13 by antonimo         ###   ########.fr       */
+/*   Updated: 2024/09/12 11:25:45 by antonimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stack.h"
+#include "push_swap.h"
 
-void	chunk_sort(t_stack *stack) /* Init chunk creo que tiene mas sentido para el nombre */
+void	chunk_sort(t_stack *stack)
 {
-	t_chunk chunk_all;
+	t_chunk	chunk_all;
 
 	chunk_all.loc = TOP_A;
 	chunk_all.size = stack->a.size;
 	rec_chunk_sort(stack, &chunk_all);
 }
 
-void	rec_chunk_sort(t_stack *stack, t_chunk *to_sort) /* to_sort puede ser chunk_all para conservar legibilidad*/
+void	rec_chunk_sort(t_stack *stack, t_chunk *to_sort)
 {
 	t_split_dest	dest;
 
 	chunk_to_the_top(stack, to_sort);
-	if (to_sort->size < 3) 
+	if (to_sort->size < 3)
 	{
 		if (to_sort->size == 2)
 			sort_two(stack, to_sort);

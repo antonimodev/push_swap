@@ -5,64 +5,64 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: antonimo <antonimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/27 21:08:28 by ugerkens          #+#    #+#             */
-/*   Updated: 2024/09/04 13:22:26 by antonimo         ###   ########.fr       */
+/*   Created: 2024/07/22 13:41:22 by antonimo          #+#    #+#             */
+/*   Updated: 2024/09/12 11:10:01 by antonimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort(t_ps *data)
+void	sort(t_stack *stacks)
 {
-	if (data->a.size <= 1 || is_sorted(data))
+	if (is_sorted(stacks))
 		return ;
-	else if (data->a.size == 3)
-		sort_three_a(data);
-	else if (data->a.size == 5)
-		sort_five_a(data);
+	else if (stacks->a.size == 3)
+		sort_three_a(stacks);
+	else if (stacks->a.size == 5)
+		sort_five_a(stacks);
 	else
-		chunk_sort(data);
+		chunk_sort(stacks);
 }
 
-void	sort_three_a(t_ps *data)
+void	sort_three_a(t_stack *stack)
 {
 	int	first;
 	int	second;
 	int	third;
 
-	first = value(&data->a, 1);
-	second = value(&data->a, 2);
-	third = value(&data->a, 3);
+	first = stack->a.array[0];
+	second = stack->a.array[1];
+	third = stack->a.array[2];
 	if (first > second && third > second && third > first)
-		swap_a(data);
+		swap_a(&stack->a);
 	else if (first > second && third > second && first > third)
-		rotate_a(data);
+		rotate_a(&stack->a);
 	else if (second > first && second > third && first > third)
-		r_rotate_a(data);
+		r_rotate_a(&stack->a);
 	else if (second > first && second > third && third > first)
 	{
-		swap_a(data);
-		rotate_a(data);
+		swap_a(&stack->a);
+		rotate_a(&stack->a);
 	}
 	else if (first > second && second > third && first > third)
 	{
-		swap_a(data);
-		r_rotate_a(data);
+		rotate_a(&stack->a);
+		swap_a(&stack->a);
 	}
 }
 
-void	sort_five_a(t_ps *data)
+void	sort_five_a(t_stack *stack)
 {
-	while (current_size(&data->a) > 3)
+	while (current_size(&stack->a) > 3)
 	{
-		if (value(&data->a, 1) == 1 || value(&data->a, 1) == 2)
-			push_b(data);
+		if (stack->a.array[0] == 1 || stack->a.array[1])
+			push_b(stack);
 		else
-			rotate_a(data);
+			rotate_a(stack);
 	}
-	if (value(&data->b, 1) < value(&data->b, 2))
-		swap_b(data);
-	sort_three_a(data);
-	push_a(data);
-	push_a(data);
+	if (stack->a.array[0] < stack->a.array[1])
+		swap_b(stack);
+	sort_three_a(stack);
+	push_a(stack);
+	push_a(stack);
 }

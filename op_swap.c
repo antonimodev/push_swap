@@ -6,11 +6,11 @@
 /*   By: antonimo <antonimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 12:29:05 by antonimo          #+#    #+#             */
-/*   Updated: 2024/09/10 14:02:06 by antonimo         ###   ########.fr       */
+/*   Updated: 2024/09/12 11:17:30 by antonimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stack.h"
+#include "push_swap.h"
 
 void	swap(t_pile *pile)
 {
