@@ -68,7 +68,7 @@ void	move_from_bottom_a(t_stack *stack, enum e_loc to)
 	}
 }
 
-void	move_from_bottom_b(t_stack *stack, enum eloc to)
+void	move_from_bottom_b(t_stack *stack, enum e_loc to)
 {
 	if (to == TOP_B)
 		r_rotate_b(stack);

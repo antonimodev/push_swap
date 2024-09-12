@@ -61,10 +61,10 @@ int	chunk_max_value(t_ps *data, t_chunk *chunk)
 	return (max_value);
 }
 
-t_stack	*loc_to_stack(t_ps *data, enum e_loc loc)
+t_stack	*loc_to_stack(t_stack *stacks, enum e_loc loc)
 {
 	if (loc == TOP_A || loc == BOTTOM_A)
-		return (&data->a);
+		return (&stacks->a);
 	else
-		return (&data->b);
+		return (&stacks->b);
 }

@@ -12,6 +12,14 @@
 
 #include "stack.h"
 
+t_stack	*loc_to_stack(t_stack *stacks, enum e_loc loc)
+{
+	if (loc == TOP_A || loc == BOTTOM_A)
+		return (&stacks->a);
+	else
+		return (&stacks->b);
+}
+
 int	chunk_value(t_stack *stack, t_chunk *chunk, int n)
 {
 	enum e_loc	loc;

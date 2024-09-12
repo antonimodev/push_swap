@@ -18,17 +18,17 @@ void	chunk_sort(t_stack *stack) /* Init chunk creo que tiene mas sentido para el
 
 	chunk_all.loc = TOP_A;
 	chunk_all.size = stack->a.size;
-	rec_chunk_sort(stack, &chunk_all)
+	rec_chunk_sort(stack, &chunk_all);
 }
 
 void	rec_chunk_sort(t_stack *stack, t_chunk *to_sort) /* to_sort puede ser chunk_all para conservar legibilidad*/
 {
 	t_split_dest	dest;
 
-	chunk_to_the_top(stack, to_sort); /* utiliza el stack para comprobar tamaño de la pila || La primera vez que se llama no hace nada ya que es TOP_A*/
+	chunk_to_the_top(stack, to_sort);
 	if (to_sort->size < 3) 
 	{
-		else if (to_sort->size == 2)
+		if (to_sort->size == 2)
 			sort_two(stack, to_sort);
 		else if (to_sort->size == 1)
 			sort_one(stack, to_sort);
