@@ -6,11 +6,11 @@
 /*   By: antonimo <antonimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 10:49:52 by antonimo          #+#    #+#             */
-/*   Updated: 2024/08/06 10:52:29 by antonimo         ###   ########.fr       */
+/*   Updated: 2024/09/12 11:37:58 by antonimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stack.h"
+#include "push_swap.h"
 
 void	error(t_stack *stacks)
 {
@@ -26,6 +26,5 @@ void	free_stacks(t_stack *stacks)
 	if (stacks->b.array)
 		free(stacks->b.array);
 	if (stacks->op_list)
-		ft_lstclear(&stacks->op_list, NULL); /*lstclear limpia la lista, debido a
-		que op_list es una t_list de libft*/
+		ft_lstclear(&stacks->op_list, NULL);
 }

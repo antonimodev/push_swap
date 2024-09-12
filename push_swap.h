@@ -6,7 +6,7 @@
 /*   By: antonimo <antonimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 12:24:41 by antonimo          #+#    #+#             */
-/*   Updated: 2024/09/12 11:37:07 by antonimo         ###   ########.fr       */
+/*   Updated: 2024/09/12 11:38:33 by antonimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,7 @@ void		nums_ranked(t_stack *stacks, int *nums, int ac);
 
 /* ERROR */
 void		error(t_stack *stacks);
+void		free_stacks(t_stack *stacks);
 
 /* SORT */
 void		sort(t_stack *stacks);
