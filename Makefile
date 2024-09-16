@@ -1,4 +1,5 @@
 # Variables #
+
 NAME	= push_swap
 CC		= gcc
 CFLAGS	= -Wall -Wextra -Werror
@@ -6,11 +7,13 @@ RM		= rm -rf
 
 # Libraries #
 
-LIBFT		= libft.a
-LIBFT_DIR	= #ruta del libft
+LIBFT_DIR		= lib/libft
+LIBFT_FILE		= $(LIBFT_DIR)/libft.a
 
-FT_PRINTF	= ft_printf.a
-FT_PRINTF	= #ruta de ft_printf
+FT_PRINTF_DIR	= lib/printf
+FT_PRINTF_FILE	= $(FT_PRINTF_DIR)/ft_printf.a
+
+MAKE_LIB		= make --no-print-directory -C # PUEDE QUE SE QUITE
 
 # Push swap sources #
 
@@ -23,16 +26,33 @@ print_operations.c
 
 # Push swap objects #
 
-OBJ_DIR = push_swap_obj
-PUSH_SWAP_OBJ = $(addprefix $(OBJ_DIR)/, $(PUSH_SWAP_SRC:.c=.o))
+PUSH_SWAP_OBJ = $(addprefix obj/, $(PUSH_SWAP_SRC:.c=.o))
 
 # Rules #
 
-all:
+all: $(NAME)
+
+$(LIBFT_FILE):
+	@$(MAKE_LIB) $(LIBFT_DIR)
+
+$(FT_PRINTF_FILE):
+	@$(MAKE_LIB) $(FT_PRINTF_DIR)
+
+obj/%.o:%.c
+	@mkdir -p obj
+	$(CC) $(CFLAGS) -c $< -o $@
+
+$(NAME): $(PUSH_SWAP_OBJ) $(LIBFT_FILE) $(FT_PRINTF_FILE)
+	@$(CC) $(CFLAGS) -o $@ $^ -L $(LIBFT_DIR) -L $(FT_PRINTF_DIR)
+	@echo $(NAME) compiled!
 
 clean:
+	@$(RM) obj
+	@echo Objects removed
 
 fclean: clean
+	@$(RM) $(NAME)
+	@echo Executable removed
 
 re: fclean all
 

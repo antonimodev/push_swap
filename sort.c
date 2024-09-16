@@ -6,11 +6,21 @@
 /*   By: antonimo <antonimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 13:41:22 by antonimo          #+#    #+#             */
-/*   Updated: 2024/09/12 11:10:01 by antonimo         ###   ########.fr       */
+/*   Updated: 2024/09/16 14:11:58 by antonimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	value(t_pile *pile, int n)
+{
+	int	i;
+
+	i = pile->top;
+	while (--n > 0)
+		i = next_down(pile, i);
+	return (pile->array[i]);
+}
 
 void	sort(t_stack *stacks)
 {
@@ -30,24 +40,24 @@ void	sort_three_a(t_stack *stack)
 	int	second;
 	int	third;
 
-	first = stack->a.array[0];
-	second = stack->a.array[1];
-	third = stack->a.array[2];
+	first = value(&stack->a, 1);
+	second = value(&stack->a, 2);
+	third = value(&stack->a, 3);
 	if (first > second && third > second && third > first)
-		swap_a(&stack->a);
+		swap_a(stack);
 	else if (first > second && third > second && first > third)
-		rotate_a(&stack->a);
+		rotate_a(stack);
 	else if (second > first && second > third && first > third)
-		r_rotate_a(&stack->a);
+		r_rotate_a(stack);
 	else if (second > first && second > third && third > first)
 	{
-		swap_a(&stack->a);
-		rotate_a(&stack->a);
+		swap_a(stack);
+		rotate_a(stack);
 	}
 	else if (first > second && second > third && first > third)
 	{
-		rotate_a(&stack->a);
-		swap_a(&stack->a);
+		rotate_a(stack);
+		swap_a(stack);
 	}
 }
 
@@ -55,12 +65,12 @@ void	sort_five_a(t_stack *stack)
 {
 	while (current_size(&stack->a) > 3)
 	{
-		if (stack->a.array[0] == 1 || stack->a.array[1])
+		if (value(&stack->a, 1) == 1 || value(&stack->a, 1) == 2)
 			push_b(stack);
 		else
 			rotate_a(stack);
 	}
-	if (stack->a.array[0] < stack->a.array[1])
+	if (value(&stack->b, 1) < value(&stack->b, 2))
 		swap_b(stack);
 	sort_three_a(stack);
 	push_a(stack);

@@ -6,7 +6,7 @@
 /*   By: antonimo <antonimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 12:24:41 by antonimo          #+#    #+#             */
-/*   Updated: 2024/09/12 14:28:43 by antonimo         ###   ########.fr       */
+/*   Updated: 2024/09/16 14:17:09 by antonimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 
 # include "../libft/libft.h"
+# include "../printf/ft_printf.h"
 # include "stdlib.h"
 # include "stdbool.h"
 # include "limits.h"
@@ -96,6 +97,7 @@ void		sort(t_stack *stacks);
 void		sort_three_a(t_stack *stack);
 void		sort_five_a(t_stack *stack);
 void		chunk_sort(t_stack *stack);
+int			value(t_pile *pile, int n);
 
 /* SORT UTILS */
 bool		is_sorted(t_stack *stacks);
@@ -117,7 +119,7 @@ void		set_pivots(enum e_loc loc, int crt_size, int *pvt_1, int *pvt_2);
 /* CHUNK UTILS */
 int			chunk_max_value(t_stack *stack, t_chunk *chunk);
 int			chunk_value(t_stack *stack, t_chunk *chunk, int n);
-t_stack		*loc_to_stack(t_stack *stacks, enum e_loc loc);
+t_pile		*loc_to_stack(t_stack *stacks, enum e_loc loc);
 
 /* CHUNK MOVEMENTS */
 int			move_from_to(t_stack *stack, enum e_loc from, enum e_loc to);

@@ -6,13 +6,13 @@
 /*   By: antonimo <antonimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 11:53:47 by antonimo          #+#    #+#             */
-/*   Updated: 2024/09/12 11:21:41 by antonimo         ###   ########.fr       */
+/*   Updated: 2024/09/16 14:12:59 by antonimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	*loc_to_stack(t_stack *stacks, enum e_loc loc)
+t_pile	*loc_to_stack(t_stack *stacks, enum e_loc loc)
 {
 	if (loc == TOP_A || loc == BOTTOM_A)
 		return (&stacks->a);
