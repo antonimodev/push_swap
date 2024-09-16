@@ -13,10 +13,11 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	@ar rcs $(NAME) $(OBJ)
+	@echo $(NAME) created!
 
 %.o: %.c
 	@$(CC) $(CFLAGS) -c $< -o $@
-	@echo "Compiling -> $<"
+#	@echo "Compiling -> $<"
 
 clean:
 	@rm -rf *.o *.out

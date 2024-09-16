@@ -13,11 +13,13 @@ LIBFT_FILE		= $(LIBFT_DIR)/libft.a
 FT_PRINTF_DIR	= lib/printf
 FT_PRINTF_FILE	= $(FT_PRINTF_DIR)/ft_printf.a
 
-MAKE_LIB		= make --no-print-directory -C # PUEDE QUE SE QUITE
+MAKE_LIB		= make --no-print-directory -C
+MAKE_LIB_BONUS	= make bonus --no-print-directory -C
 
 # Push swap sources #
 
-PUSH_SWAP_SRC	= init_stacks.c stack_utils.c error.c \
+PUSH_SWAP_SRC	= push_swap.c \
+init_stacks.c stack_utils.c error.c \
 sort.c sort_utils.c \
 chunk_sort.c chunk_split.c chunk_utils.c \
 move.c chunk_optimization.c \
@@ -33,14 +35,14 @@ PUSH_SWAP_OBJ = $(addprefix obj/, $(PUSH_SWAP_SRC:.c=.o))
 all: $(NAME)
 
 $(LIBFT_FILE):
-	@$(MAKE_LIB) $(LIBFT_DIR)
+	@$(MAKE_LIB_BONUS) $(LIBFT_DIR)
 
 $(FT_PRINTF_FILE):
 	@$(MAKE_LIB) $(FT_PRINTF_DIR)
 
 obj/%.o:%.c
 	@mkdir -p obj
-	$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(PUSH_SWAP_OBJ) $(LIBFT_FILE) $(FT_PRINTF_FILE)
 	@$(CC) $(CFLAGS) -o $@ $^ -L $(LIBFT_DIR) -L $(FT_PRINTF_DIR)
@@ -48,10 +50,14 @@ $(NAME): $(PUSH_SWAP_OBJ) $(LIBFT_FILE) $(FT_PRINTF_FILE)
 
 clean:
 	@$(RM) obj
+	@$(RM) $(LIBFT_DIR)/*.o
+	@$(RM) $(FT_PRINTF_DIR)/*.o
 	@echo Objects removed
 
 fclean: clean
 	@$(RM) $(NAME)
+	@$(RM) $(LIBFT_FILE)
+	@$(RM) $(FT_PRINTF_FILE)
 	@echo Executable removed
 
 re: fclean all

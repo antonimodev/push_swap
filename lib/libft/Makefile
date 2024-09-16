@@ -23,20 +23,20 @@ OBJ_BONUS = $(SRC_BONUS:%.c=%.o)
 all: $(NAME)
 
 $(NAME):$(OBJ)
-	ar rcs $(NAME) $(OBJ)
+	@ar rcs $(NAME) $(OBJ)
 	@echo "$(NAME) created!"
 
 bonus: $(NAME) $(OBJ_BONUS) $(OBJ)
-	ar rcs $(NAME) $(OBJ_BONUS) $(OBJ)
+	@ar rcs $(NAME) $(OBJ_BONUS) $(OBJ)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -rf *.o
+	@rm -rf *.o
 
 fclean: clean
-	rm -rf $(NAME)
+	@rm -rf $(NAME)
 
 re: fclean all
 
