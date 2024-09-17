@@ -6,7 +6,7 @@
 /*   By: antonimo <antonimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 16:28:35 by antonimo          #+#    #+#             */
-/*   Updated: 2024/09/16 14:02:16 by antonimo         ###   ########.fr       */
+/*   Updated: 2024/09/17 11:19:01 by antonimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ bool	valid_av(char *av)
 		num = num * 10 + (*av - '0');
 		if ((sign == 1 && num > INT_MAX) || (sign == -1 && num < INT_MIN))
 			return (false);
-		(*av)++;
+		av++;
 	}
 	return (true);
 }

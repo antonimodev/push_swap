@@ -6,7 +6,7 @@
 /*   By: antonimo <antonimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 13:51:11 by antonimo          #+#    #+#             */
-/*   Updated: 2024/09/16 15:36:25 by antonimo         ###   ########.fr       */
+/*   Updated: 2024/09/17 11:29:13 by antonimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	init_pile(t_stack *stacks, t_pile *pile, int ac)
 	pile->top = 0;
 	pile->bottom = 0;
 	pile->size = ac;
-	ft_memset(&pile->array, 0, ac);
+	ft_memset(pile->array, 0, ac);
 }
 
 void	fill_pile(t_stack *stacks, t_pile *pile, int ac, char **av)

@@ -6,7 +6,7 @@
 /*   By: antonimo <antonimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 10:45:57 by antonimo          #+#    #+#             */
-/*   Updated: 2024/09/16 14:13:44 by antonimo         ###   ########.fr       */
+/*   Updated: 2024/09/17 12:31:11 by antonimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,12 @@ void	push(t_pile *src, t_pile *dest)
 
 void	push_a(t_stack *stack)
 {
-	push(&stack->a, &stack->b);
+	push(&stack->b, &stack->a);
 	save_op(stack, pa);
 }
 
 void	push_b(t_stack *stack)
 {
-	push(&stack->b, &stack->a);
+	push(&stack->a, &stack->b);
 	save_op(stack, pb);
 }

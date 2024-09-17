@@ -6,7 +6,7 @@
 /*   By: antonimo <antonimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 13:41:22 by antonimo          #+#    #+#             */
-/*   Updated: 2024/09/16 14:11:58 by antonimo         ###   ########.fr       */
+/*   Updated: 2024/09/17 14:01:23 by antonimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,8 @@ void	sort_three_a(t_stack *stack)
 	}
 	else if (first > second && second > third && first > third)
 	{
-		rotate_a(stack);
 		swap_a(stack);
+		r_rotate_a(stack);
 	}
 }
 
