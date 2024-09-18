@@ -6,7 +6,7 @@
 /*   By: antonimo <antonimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 12:24:41 by antonimo          #+#    #+#             */
-/*   Updated: 2024/09/16 14:17:09 by antonimo         ###   ########.fr       */
+/*   Updated: 2024/09/18 13:14:39 by antonimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,10 +78,10 @@ typedef struct stack
 /* --------------- */
 
 /* STACKS INITIALIZATION */
-void		init_stacks(t_stack *stacks, int ac, char **av);
+char		**init_stacks(t_stack *stacks, int ac, char **av);
 char		**process_av(int *ac, char **av);
 void		init_pile(t_stack *stacks, t_pile *pile, int ac);
-void		fill_pile(t_stack *stacks, t_pile *piles, int ac, char **av);
+void		fill_pile(t_stack *stacks, t_pile *pile, int ac, char **av);
 
 /* STACKS UTILITIES */
 bool		valid_av(char *av);
@@ -90,10 +90,12 @@ void		nums_ranked(int *nums, int *pile, int ac);
 
 /* ERROR */
 void		error(t_stack *stacks);
+void		free_split(char **split_av, int ac);
+void		sorted_exit(t_stack *stacks);
 void		free_stacks(t_stack *stacks);
 
 /* SORT */
-void		sort(t_stack *stacks);
+void		sort(t_stack *stacks, char **split_av, int ac);
 void		sort_three_a(t_stack *stack);
 void		sort_five_a(t_stack *stack);
 void		chunk_sort(t_stack *stack);

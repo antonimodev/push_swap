@@ -6,7 +6,7 @@
 /*   By: antonimo <antonimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 16:09:34 by antonimo          #+#    #+#             */
-/*   Updated: 2024/04/29 11:20:19 by antonimo         ###   ########.fr       */
+/*   Updated: 2024/09/18 14:09:28 by antonimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	words = ft_countwords(s, c);
 	matrix = (char **)malloc(sizeof(char *) * (words + 1));
-	if (matrix == NULL)
+	if (!matrix)
 		return (NULL);
 	matrix = ft_fillmatrix(s, words, c, matrix);
 	return (matrix);

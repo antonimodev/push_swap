@@ -6,15 +6,16 @@
 /*   By: antonimo <antonimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 13:51:11 by antonimo          #+#    #+#             */
-/*   Updated: 2024/09/17 11:29:13 by antonimo         ###   ########.fr       */
+/*   Updated: 2024/09/18 14:50:28 by antonimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	init_stacks(t_stack *stacks, int ac, char **av)
+char	**init_stacks(t_stack *stacks, int ac, char **av)
 {
 	char	**split_av;
+	bool	split_flag;
 
 	split_av = av;
 	if (ac == 2)
@@ -22,14 +23,17 @@ void	init_stacks(t_stack *stacks, int ac, char **av)
 		split_av = process_av(&ac, av);
 		if (!split_av)
 			exit(EXIT_FAILURE);
+		split_flag = true;
 	}
 	else
 		++split_av;
 	--ac;
+	stacks->op_list = NULL;
 	init_pile(stacks, &stacks->a, ac);
 	init_pile(stacks, &stacks->b, ac);
 	fill_pile(stacks, &stacks->a, ac, split_av);
-	stacks->op_list = NULL;
+	/* split_check(split_av, ac, split_flag); */
+	return (split_av);
 }
 
 char	**process_av(int *ac, char **av)
@@ -65,7 +69,10 @@ void	fill_pile(t_stack *stacks, t_pile *pile, int ac, char **av)
 
 	nums = malloc(ac * sizeof(int));
 	if (!nums)
+	{
+		free(nums);
 		error(stacks);
+	}
 	i = 0;
 	while (av[i])
 	{

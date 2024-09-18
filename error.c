@@ -6,7 +6,7 @@
 /*   By: antonimo <antonimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 10:49:52 by antonimo          #+#    #+#             */
-/*   Updated: 2024/09/12 11:37:58 by antonimo         ###   ########.fr       */
+/*   Updated: 2024/09/18 13:32:12 by antonimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,25 @@ void	error(t_stack *stacks)
 	exit(EXIT_FAILURE);
 }
 
+void	free_split(char **split_av, int ac)
+{
+	int	i;
+
+	i = 0;
+	while (i < ac)
+	{
+		free(split_av[i]);
+		i++;
+	}
+	free(split_av);
+}
+
+void	sorted_exit(t_stack *stacks)
+{
+	free_stacks(stacks);
+	exit(EXIT_SUCCESS);
+}
+
 void	free_stacks(t_stack *stacks)
 {
 	if (stacks->a.array)
@@ -26,5 +45,5 @@ void	free_stacks(t_stack *stacks)
 	if (stacks->b.array)
 		free(stacks->b.array);
 	if (stacks->op_list)
-		ft_lstclear(&stacks->op_list, NULL);
+		ft_lstclear(&stacks->op_list, free);
 }

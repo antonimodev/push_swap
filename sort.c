@@ -6,7 +6,7 @@
 /*   By: antonimo <antonimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 13:41:22 by antonimo          #+#    #+#             */
-/*   Updated: 2024/09/17 14:01:23 by antonimo         ###   ########.fr       */
+/*   Updated: 2024/09/18 14:14:23 by antonimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,12 @@ int	value(t_pile *pile, int n)
 	return (pile->array[i]);
 }
 
-void	sort(t_stack *stacks)
+void	sort(t_stack *stacks, char **split_av, int ac)
 {
 	if (is_sorted(stacks))
-		return ;
+	{
+		sorted_exit(stacks);
+	}
 	else if (stacks->a.size == 3)
 		sort_three_a(stacks);
 	else if (stacks->a.size == 5)
