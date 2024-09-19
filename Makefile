@@ -30,6 +30,10 @@ print_operations.c
 
 PUSH_SWAP_OBJ = $(addprefix obj/, $(PUSH_SWAP_SRC:.c=.o))
 
+# Testing #
+
+GEMARTIN = bash push_swap_test_linux.sh
+
 # Rules #
 
 all: $(NAME)
@@ -58,8 +62,13 @@ fclean: clean
 	@$(RM) $(NAME)
 	@$(RM) $(LIBFT_FILE)
 	@$(RM) $(FT_PRINTF_FILE)
+	@$(RM) traces.txt
+	@$(RM) 0
 	@echo Executable removed
 
 re: fclean all
+
+test: $(NAME)
+	$(GEMARTIN)
 
 .PHONY: all clean fclean re

@@ -6,7 +6,7 @@
 /*   By: antonimo <antonimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 14:01:47 by antonimo          #+#    #+#             */
-/*   Updated: 2024/09/18 12:07:57 by antonimo         ###   ########.fr       */
+/*   Updated: 2024/09/19 16:50:32 by antonimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,10 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 	while (*lst)
 	{
 		lst_temp = (*lst)->next;
-		ft_lstdelone(*lst, del);
+		if (del)
+			ft_lstdelone(*lst, del);
+		else
+			free(*lst);
 		*lst = lst_temp;
 	}
-	*lst = NULL;
 }

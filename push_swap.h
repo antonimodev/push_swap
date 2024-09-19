@@ -6,7 +6,7 @@
 /*   By: antonimo <antonimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 12:24:41 by antonimo          #+#    #+#             */
-/*   Updated: 2024/09/19 12:22:09 by antonimo         ###   ########.fr       */
+/*   Updated: 2024/09/19 16:59:37 by antonimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ void		nums_ranked(int *nums, int *pile, int ac);
 /* ERROR */
 void		error(t_stack *stacks);
 void		free_split(char **split_av, int ac);
-void		sorted_exit(t_stack *stacks);
+void		free_and_exit(t_stack *stacks);
 void		free_stacks(t_stack *stacks);
 void		split_check(t_stack *stacks, char **split_av, int ac, bool flag);
 
@@ -159,9 +159,5 @@ void		save_op(t_stack *stack, enum e_op op);
 void		print_operations(t_list *head);
 const char	*op_to_string(enum e_op op);
 enum e_op	op_from(t_list *node);
-
-/* FINISH */
-
-void		finish(t_stack *stacks);
 
 #endif

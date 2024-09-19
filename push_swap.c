@@ -6,7 +6,7 @@
 /*   By: antonimo <antonimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 10:40:24 by antonimo          #+#    #+#             */
-/*   Updated: 2024/09/19 14:24:15 by antonimo         ###   ########.fr       */
+/*   Updated: 2024/09/19 17:02:31 by antonimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	main(int ac, char **av)
 	print_operations(stacks.op_list);
 	if (split_flag)
 		free_split(split_av, ac);
-	finish(&stacks);
+	free_and_exit(&stacks);
 }
 
 /*FUNCIONA
@@ -49,4 +49,7 @@ NO FUNCIONA
 
 • 4 9 8
 • "4 9 8"
-• "1 2 3" (ORDENADOS)*/
+• "1 2 3" (ORDENADOS)
+
+free_split -> en ft_lstclear si le ponemos la funcion free libera de más,
+ si le ponemos NULL no libera todo.*/

@@ -6,7 +6,7 @@
 /*   By: antonimo <antonimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 13:41:22 by antonimo          #+#    #+#             */
-/*   Updated: 2024/09/19 12:31:05 by antonimo         ###   ########.fr       */
+/*   Updated: 2024/09/19 16:59:37 by antonimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	sort(t_stack *stacks, char **split_av, int ac, bool *split_flag)
 	{
 		if (*split_flag)
 			free_split(split_av, ac);
-		sorted_exit(stacks);
+		free_and_exit(stacks);
 	}
 	else if (stacks->a.size == 3)
 		sort_three_a(stacks);
