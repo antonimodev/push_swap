@@ -6,7 +6,7 @@
 /*   By: antonimo <antonimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 10:40:24 by antonimo          #+#    #+#             */
-/*   Updated: 2024/09/18 14:59:03 by antonimo         ###   ########.fr       */
+/*   Updated: 2024/09/19 14:24:15 by antonimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,37 @@ int	main(int ac, char **av)
 {
 	t_stack	stacks;
 	char	**split_av;
+	bool	split_flag;
 
-	split_av = init_stacks(&stacks, ac, av);
-	sort(&stacks, split_av, ac);
+	split_flag = false;
+	split_av = init_stacks(&stacks, ac, av, &split_flag);
+	sort(&stacks, split_av, ac, &split_flag);
 	print_operations(stacks.op_list);
-	exit(EXIT_SUCCESS);
+	if (split_flag)
+		free_split(split_av, ac);
+	finish(&stacks);
 }
-// EN INIT STACKS DESPUES DE RELLENAR LA PILA HAY QUE LIBERAR (SPLIT) SI EL ARGUMENTO ES VÁLIDO -> ./push_swap "4 1 9"
-// FALTA CUBRIR 1 FREE SI NO ES VÁLIDO -> ./push_swap 4 k 9
-// SI NO ES VÁLIDO Y HAY SPLIT, HAY QUE LIBERAR SPLIT -> ./push_swap "4 1 k"
-// EN EL CASO MÁS NORMAL HAY ERRORES DE MEMORIA EN FUNCIONES DE LIBFT (CREO) -> ./push_swap 4 1 9
 
-// SI NO PASA POR SPLIT NO PUEDO HACER FREE_SPLIT
+/*FUNCIONA
+
+• VACIO
+• "VACIO"
+• ke
+• ke sad
+• "ke"
+• "ke sad"
+------
+•  1
+• "1"
+• 1 2 3 (ORDENADOS)
+• 1 2 3 4 5 (+5) (ORDENADOS)
+•  1 ke sad
+•  1 ke sad (+5)
+• "1 ke sad"
+• "1 ke sad" (+5)
+
+NO FUNCIONA
+
+• 4 9 8
+• "4 9 8"
+• "1 2 3" (ORDENADOS)*/

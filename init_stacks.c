@@ -6,24 +6,23 @@
 /*   By: antonimo <antonimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 13:51:11 by antonimo          #+#    #+#             */
-/*   Updated: 2024/09/18 14:50:28 by antonimo         ###   ########.fr       */
+/*   Updated: 2024/09/19 12:57:37 by antonimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-char	**init_stacks(t_stack *stacks, int ac, char **av)
+char	**init_stacks(t_stack *stacks, int ac, char **av, bool *split_flag)
 {
 	char	**split_av;
-	bool	split_flag;
 
 	split_av = av;
 	if (ac == 2)
 	{
 		split_av = process_av(&ac, av);
 		if (!split_av)
-			exit(EXIT_FAILURE);
-		split_flag = true;
+			finish(stacks);
+		*split_flag = true;
 	}
 	else
 		++split_av;
@@ -31,8 +30,8 @@ char	**init_stacks(t_stack *stacks, int ac, char **av)
 	stacks->op_list = NULL;
 	init_pile(stacks, &stacks->a, ac);
 	init_pile(stacks, &stacks->b, ac);
+	split_check(stacks, split_av, ac, *split_flag);
 	fill_pile(stacks, &stacks->a, ac, split_av);
-	/* split_check(split_av, ac, split_flag); */
 	return (split_av);
 }
 
@@ -69,15 +68,15 @@ void	fill_pile(t_stack *stacks, t_pile *pile, int ac, char **av)
 
 	nums = malloc(ac * sizeof(int));
 	if (!nums)
-	{
-		free(nums);
 		error(stacks);
-	}
 	i = 0;
 	while (av[i])
 	{
 		if (!valid_av(av[i]))
+		{
+			free(nums);
 			error(stacks);
+		}
 		nums[i] = ft_atoi(av[i]);
 		i++;
 	}

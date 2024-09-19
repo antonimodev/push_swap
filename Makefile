@@ -19,7 +19,7 @@ MAKE_LIB_BONUS	= make bonus --no-print-directory -C
 # Push swap sources #
 
 PUSH_SWAP_SRC	= push_swap.c \
-init_stacks.c stack_utils.c error.c \
+init_stacks.c stack_utils.c error.c split_check.c \
 sort.c sort_utils.c \
 chunk_sort.c chunk_split.c chunk_utils.c \
 move.c chunk_optimization.c \

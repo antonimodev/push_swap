@@ -6,7 +6,7 @@
 /*   By: antonimo <antonimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 16:09:34 by antonimo          #+#    #+#             */
-/*   Updated: 2024/09/18 14:09:28 by antonimo         ###   ########.fr       */
+/*   Updated: 2024/09/19 14:18:58 by antonimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,10 @@ static char	**ft_fillmatrix(char const *s, int words, char c, char **matrix)
 		len = ft_wordlen(s, c);
 		matrix[i] = (char *)malloc(sizeof(char) * (len + 1));
 		if (matrix[i] == NULL)
-			return (ft_freematrix(matrix, i));
+		{
+			ft_freematrix(matrix, i);
+			return (NULL);
+		}
 		j = 0;
 		while (j < len)
 			matrix[i][j++] = *s++;
@@ -90,12 +93,14 @@ static char	**ft_fillmatrix(char const *s, int words, char c, char **matrix)
 	matrix[i] = NULL;
 	return (matrix);
 }
+// matrix[i] = NULL; puede ser '\0' ya que trabajamos con chars
 
 char	**ft_split(char const *s, char c)
 {
 	char	**matrix;
 	int		words;
 
+	matrix = NULL;
 	if (!s)
 		return (NULL);
 	words = ft_countwords(s, c);
@@ -103,5 +108,10 @@ char	**ft_split(char const *s, char c)
 	if (!matrix)
 		return (NULL);
 	matrix = ft_fillmatrix(s, words, c, matrix);
+	if (!matrix)
+	{
+		free(matrix);
+		return (NULL);
+	}
 	return (matrix);
 }

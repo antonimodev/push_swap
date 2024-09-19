@@ -6,7 +6,7 @@
 /*   By: antonimo <antonimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 12:24:41 by antonimo          #+#    #+#             */
-/*   Updated: 2024/09/18 13:14:39 by antonimo         ###   ########.fr       */
+/*   Updated: 2024/09/19 12:22:09 by antonimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ typedef struct stack
 /* --------------- */
 
 /* STACKS INITIALIZATION */
-char		**init_stacks(t_stack *stacks, int ac, char **av);
+char		**init_stacks(t_stack *stacks, int ac, char **av, bool *split_flag);
 char		**process_av(int *ac, char **av);
 void		init_pile(t_stack *stacks, t_pile *pile, int ac);
 void		fill_pile(t_stack *stacks, t_pile *pile, int ac, char **av);
@@ -93,9 +93,10 @@ void		error(t_stack *stacks);
 void		free_split(char **split_av, int ac);
 void		sorted_exit(t_stack *stacks);
 void		free_stacks(t_stack *stacks);
+void		split_check(t_stack *stacks, char **split_av, int ac, bool flag);
 
 /* SORT */
-void		sort(t_stack *stacks, char **split_av, int ac);
+void		sort(t_stack *stacks, char **split_av, int ac, bool *split_flag);
 void		sort_three_a(t_stack *stack);
 void		sort_five_a(t_stack *stack);
 void		chunk_sort(t_stack *stack);
@@ -158,5 +159,9 @@ void		save_op(t_stack *stack, enum e_op op);
 void		print_operations(t_list *head);
 const char	*op_to_string(enum e_op op);
 enum e_op	op_from(t_list *node);
+
+/* FINISH */
+
+void		finish(t_stack *stacks);
 
 #endif

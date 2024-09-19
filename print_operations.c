@@ -6,7 +6,7 @@
 /*   By: antonimo <antonimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 11:33:38 by antonimo          #+#    #+#             */
-/*   Updated: 2024/09/12 11:37:09 by antonimo         ###   ########.fr       */
+/*   Updated: 2024/09/19 14:34:18 by antonimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ void	print_operations(t_list *head)
 		reader = reader->next;
 	}
 }
+
+// PROBAR A LIBERAR OPLIST AQUI ARRIBA EN PRINT OPERATIONS
 
 const char	*op_to_string(enum e_op op)
 {
