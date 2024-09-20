@@ -6,7 +6,7 @@
 /*   By: antonimo <antonimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 13:51:11 by antonimo          #+#    #+#             */
-/*   Updated: 2024/09/19 16:59:41 by antonimo         ###   ########.fr       */
+/*   Updated: 2024/09/20 12:44:22 by antonimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	**init_stacks(t_stack *stacks, int ac, char **av, bool *split_flag)
 	{
 		split_av = process_av(&ac, av);
 		if (!split_av)
-			free_and_exit(stacks);
+			exit(EXIT_FAILURE);
 		*split_flag = true;
 	}
 	else
@@ -30,7 +30,7 @@ char	**init_stacks(t_stack *stacks, int ac, char **av, bool *split_flag)
 	stacks->op_list = NULL;
 	init_pile(stacks, &stacks->a, ac);
 	init_pile(stacks, &stacks->b, ac);
-	split_check(stacks, split_av, ac, *split_flag);
+	split_check(stacks, split_av, *split_flag);
 	fill_pile(stacks, &stacks->a, ac, split_av);
 	return (split_av);
 }

@@ -6,7 +6,7 @@
 /*   By: antonimo <antonimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 10:49:52 by antonimo          #+#    #+#             */
-/*   Updated: 2024/09/19 16:59:56 by antonimo         ###   ########.fr       */
+/*   Updated: 2024/09/20 13:15:07 by antonimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,16 @@
 void	error(t_stack *stacks)
 {
 	free_stacks(stacks);
-	ft_putendl_fd("An error has ocurred! exiting ...", 2);
+	ft_putendl_fd("Error\n", 2);
 	exit(EXIT_FAILURE);
 }
 
-void	free_split(char **split_av, int ac)
+void	free_split(char **split_av)
 {
 	int	i;
 
 	i = 0;
-	while (i < ac)
+	while (split_av[i])
 	{
 		free(split_av[i]);
 		i++;

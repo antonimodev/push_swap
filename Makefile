@@ -2,7 +2,7 @@
 
 NAME	= push_swap
 CC		= gcc
-CFLAGS	= -Wall -Wextra -g #-Werror
+CFLAGS	= -Wall -Wextra -Werror -g
 RM		= rm -rf
 
 # Libraries #
@@ -24,7 +24,6 @@ sort.c sort_utils.c \
 chunk_sort.c chunk_split.c chunk_utils.c \
 move.c chunk_optimization.c \
 op_push.c op_reverse_rotate.c op_rotate.c op_swap.c \
-print_operations.c
 
 # Push swap objects #
 

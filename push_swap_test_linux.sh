@@ -54,7 +54,7 @@ printf ${BLUE}"\n\t\t\tCONTROL ERRORS\t\n"${DEF_COLOR};
 printf ${BLUE}"\n-------------------------------------------------------------\n\n"${DEF_COLOR};
 
 ARG="a"
-./push_swap $ARG > /dev/null 2> test_check.txt
+./push_swap $ARG > /dev/null 2> ~/Desktop/test_check.txt
 if [ -s "$FICHERO" ];then
 while IFS= read -r line
 do

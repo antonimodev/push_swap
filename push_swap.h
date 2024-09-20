@@ -6,7 +6,7 @@
 /*   By: antonimo <antonimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 12:24:41 by antonimo          #+#    #+#             */
-/*   Updated: 2024/09/19 16:59:37 by antonimo         ###   ########.fr       */
+/*   Updated: 2024/09/20 12:44:04 by antonimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,23 +19,6 @@
 # include "stdbool.h"
 # include "limits.h"
 # include "stdint.h"
-
-/* OPERATION STRUCTS */
-enum	e_op
-{
-	null_op,
-	pa,
-	pb,
-	ra,
-	rb,
-	rr,
-	rra,
-	rrb,
-	rrr,
-	sa,
-	sb,
-	ss
-};
 
 /* CHUNK STRUCTS */
 enum e_loc
@@ -90,13 +73,13 @@ void		nums_ranked(int *nums, int *pile, int ac);
 
 /* ERROR */
 void		error(t_stack *stacks);
-void		free_split(char **split_av, int ac);
+void		free_split(char **split_av);
 void		free_and_exit(t_stack *stacks);
 void		free_stacks(t_stack *stacks);
-void		split_check(t_stack *stacks, char **split_av, int ac, bool flag);
+void		split_check(t_stack *stacks, char **split_av, bool flag);
 
 /* SORT */
-void		sort(t_stack *stacks, char **split_av, int ac, bool *split_flag);
+void		sort(t_stack *stacks, char **split_av, bool *split_flag);
 void		sort_three_a(t_stack *stack);
 void		sort_five_a(t_stack *stack);
 void		chunk_sort(t_stack *stack);
@@ -153,11 +136,5 @@ void		swap(t_pile *pile);
 void		swap_a(t_stack *pile);
 void		swap_b(t_stack *pile);
 void		swap_ab(t_stack *pile);
-
-/* PRINT OPERATIONS */
-void		save_op(t_stack *stack, enum e_op op);
-void		print_operations(t_list *head);
-const char	*op_to_string(enum e_op op);
-enum e_op	op_from(t_list *node);
 
 #endif
