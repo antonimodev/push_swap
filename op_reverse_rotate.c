@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   op_reverse_rotate.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antonimo <antonimo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: antonimo <antonimo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 10:57:50 by antonimo          #+#    #+#             */
-/*   Updated: 2024/09/20 12:17:21 by antonimo         ###   ########.fr       */
+/*   Updated: 2024/09/24 11:16:13 by antonimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

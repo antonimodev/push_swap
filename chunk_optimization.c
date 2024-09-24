@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   chunk_optimization.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antonimo <antonimo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: antonimo <antonimo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 10:22:31 by antonimo          #+#    #+#             */
-/*   Updated: 2024/09/12 13:53:24 by antonimo         ###   ########.fr       */
+/*   Updated: 2024/09/24 14:23:35 by antonimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

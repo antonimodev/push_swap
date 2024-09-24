@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antonimo <antonimo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: antonimo <antonimo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 13:03:07 by antonimo          #+#    #+#             */
-/*   Updated: 2024/09/18 11:30:35 by antonimo         ###   ########.fr       */
+/*   Updated: 2024/09/24 12:55:21 by antonimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ bool	is_sorted(t_stack *stacks)
 		if (stacks->a.array[i] != rank)
 			return (false);
 		rank++;
-		i = next_down(&stacks->a, i);
+		i++;
 	}
 	return (true);
 }
