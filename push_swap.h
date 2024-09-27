@@ -6,7 +6,7 @@
 /*   By: antonimo <antonimo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 12:24:41 by antonimo          #+#    #+#             */
-/*   Updated: 2024/09/24 11:16:40 by antonimo         ###   ########.fr       */
+/*   Updated: 2024/09/27 11:40:04 by antonimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ typedef struct stack
 {
 	t_pile	a;
 	t_pile	b;
-	t_list	*op_list;
 }	t_stack;
 
 /* --------------- */

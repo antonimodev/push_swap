@@ -6,7 +6,7 @@
 /*   By: antonimo <antonimo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 10:49:52 by antonimo          #+#    #+#             */
-/*   Updated: 2024/09/24 11:09:55 by antonimo         ###   ########.fr       */
+/*   Updated: 2024/09/27 11:11:28 by antonimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,4 @@ void	free_stacks(t_stack *stacks)
 		free(stacks->a.array);
 	if (stacks->b.array)
 		free(stacks->b.array);
-	if (stacks->op_list)
-		ft_lstclear(&stacks->op_list, NULL);
 }
